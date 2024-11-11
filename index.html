@@ -151,9 +151,11 @@
             new google.translate.TranslateElement({
                 pageLanguage: 'en',
                 includedLanguages: 'en,es,vi,ja,zh-CN,ko,ru,ar,hi',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
                 autoDisplay: false
             }, 'google_translate_element');
         }
+
     
         function translatePage(lang) {
             if (lang === '') {
@@ -170,7 +172,6 @@
         }
     
         document.addEventListener('DOMContentLoaded', function() {
-            googleTranslateElementInit();
             var languageSelector = document.getElementById('language_selector');
             languageSelector.addEventListener('change', function() {
                 translatePage(this.value);
