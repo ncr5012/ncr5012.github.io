@@ -95,6 +95,28 @@
             font-weight: bold;
             margin-right: 10px;
         }
+        /* Hide the Google Translate element off-screen */
+        #google_translate_element {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+
+        /* Hide the Google Translate top frame */
+        .goog-te-banner-frame {
+            display: none !important;
+        }
+
+        /* Remove the Google Translate toolbar styling */
+        body {
+            top: 0px !important;
+        }
+
+        /* Hide Google branding */
+        .goog-logo-link {
+            display: none !important;
+        }
+
 
     </style>
 </head>
@@ -157,19 +179,27 @@
         }
 
     
-        function translatePage(lang) {
+        function translatePage(lang, retries) {
+            retries = retries || 5; // default retries to 5 if not provided
             if (lang === '') {
                 window.location.reload();
             } else {
                 var selectField = document.querySelector('.goog-te-combo');
                 if (selectField) {
                     selectField.value = lang;
+                    // Simulate the 'change' event on the select field
                     selectField.dispatchEvent(new Event('change'));
+                } else if (retries > 0) {
+                    // Wait a bit and try again
+                    setTimeout(function() {
+                        translatePage(lang, retries - 1);
+                    }, 500); // Wait 500ms before retrying
                 } else {
                     alert("Translation service not available. Please try again later.");
                 }
             }
         }
+
     
         document.addEventListener('DOMContentLoaded', function() {
             var languageSelector = document.getElementById('language_selector');
