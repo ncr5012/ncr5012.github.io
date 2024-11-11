@@ -76,9 +76,35 @@
         footer a:hover {
             text-decoration: underline;
         }
+        /* Styles for language selector */
+        .language-selector {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        .language-selector label {
+            margin-right: 5px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <label for="language">Select Language:</label>
+        <select id="language">
+            <option value="">English</option>
+            <option value="es">Español</option>
+            <option value="vi">Tiếng Việt</option>
+            <option value="ar">العربية</option>
+            <option value="zh-CN">中文 (简体)</option>
+            <option value="ja">日本語</option>
+            <option value="ko">한국어</option>
+            <option value="hi">हिन्दी</option>
+            <option value="ru">Русский</option>
+        </select>
+    </div>
+
     <div class="container">
         <img src="Icon.png" alt="App Logo" class="app-logo">
         <h1>Welcome to Glyphz!</h1>
@@ -95,7 +121,7 @@
             <a href="https://apps.apple.com/us/app/glyphz/id6720708677">
                 <img src="images/appstore-badge.png" alt="Download on the App Store">
             </a>
-            <!-- Android Waitlist Button -->
+            <!-- Google Play Store Button -->
             <a href="https://play.google.com/store/apps/details?id=com.waypost&pcampaignid=web_share">
                 <img src="images/google_play-badge.png" alt="Download on the Google Play Store">
             </a>
@@ -108,5 +134,18 @@
             <a href="support.html">Support</a>
         </footer>
     </div>
+
+    <!-- JavaScript for language selector -->
+    <script>
+        document.getElementById('language').addEventListener('change', function() {
+            var lang = this.value;
+            if (lang) {
+                var url = 'https://translate.google.com/translate?hl=' + lang + '&sl=auto&tl=' + lang + '&u=' + encodeURIComponent(window.location.href);
+                window.location.href = url;
+            } else {
+                window.location.href = window.location.href.split('#')[0];
+            }
+        });
+    </script>
 </body>
 </html>
