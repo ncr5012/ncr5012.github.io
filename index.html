@@ -1,41 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <div id="google_translate_element"></div>
-    <script type="text/javascript">
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({
-            pageLanguage: 'en', // Set the default language
-            includedLanguages: 'en,es,vi,ja,zh-CN,ko,ru,ar,hi', // Languages to be included
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-            autoDisplay: true // Prevent automatic display of the original select field
-        }, 'google_translate_element');
-    }
-
-    document.getElementById('language_selector').addEventListener('change', function() {
-        translatePage(this.value);
-    });
-
-    function translatePage(lang) {
-        var translateElement = document.querySelector('.goog-te-combo');
-        if (translateElement) {
-            translateElement.value = lang;
-            translateElement.dispatchEvent(new Event('change'));
-        }
-    }
-
-    window.onload = function() {
-        var userLang = navigator.language || navigator.userLanguage; 
-        userLang = userLang.split('-')[0]; // Simplify to basic language code
-
-        if (['en', 'es', 'vi', 'ja', 'zh', 'ko', 'ru', 'ar', 'hi'].includes(userLang)) {
-            document.getElementById('language_selector').value = userLang === 'zh' ? 'zh-CN' : userLang; // Handle Chinese Mandarin
-            translatePage(document.getElementById('language_selector').value);
-        }
-    };
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MKLFX87SHC"></script>
@@ -112,22 +77,46 @@
         footer a:hover {
             text-decoration: underline;
         }
+        /* Add this to your existing CSS */
+        #custom_translate {
+            margin: 20px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        #language_selector {
+            font-size: 20px;
+            padding: 8px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #custom_translate label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
     </style>
 </head>
 <body>
-    <select id="language_selector">
-        <option value="">Select Language</option>
-        <option value="en">English</option>
-        <option value="es">Español</option>
-        <option value="vi">Tiếng Việt</option>
-        <option value="ja">日本語</option>
-        <option value="zh-CN">中文 (简体)</option>
-        <option value="ko">한국어</option>
-        <option value="ru">Русский</option>
-        <option value="ar">العربية</option>
-        <option value="hi">हिन्दी</option>
-    </select>
+
     <div class="container">
+        <!-- Place this where you want the language selector to appear -->
+        <div id="custom_translate">
+            <label for="language_selector">🌐 Select Language:</label>
+            <select id="language_selector">
+                <option value="">Select Language</option>
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="vi">Tiếng Việt</option>
+                <option value="ja">日本語</option>
+                <option value="zh-CN">中文 (简体)</option>
+                <option value="ko">한국어</option>
+                <option value="ru">Русский</option>
+                <option value="ar">العربية</option>
+                <option value="hi">हिन्दी</option>
+            </select>
+        </div>
         <img src="Icon.png" alt="App Logo" class="app-logo">
         <h1>Welcome to Glyphz!</h1>
         <p>Start learning a new language now!</p>
@@ -155,6 +144,40 @@
             <a href="delete.html">Delete Account</a> |
             <a href="support.html">Support</a>
         </footer>
+        <div id="google_translate_element" style="display: none;"></div>
     </div>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,es,vi,ja,zh-CN,ko,ru,ar,hi',
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    
+        function translatePage(lang) {
+            if (lang === '') {
+                window.location.reload();
+            } else {
+                var selectField = document.querySelector('.goog-te-combo');
+                if (selectField) {
+                    selectField.value = lang;
+                    selectField.dispatchEvent(new Event('change'));
+                } else {
+                    alert("Translation service not available. Please try again later.");
+                }
+            }
+        }
+    
+        document.addEventListener('DOMContentLoaded', function() {
+            googleTranslateElementInit();
+            var languageSelector = document.getElementById('language_selector');
+            languageSelector.addEventListener('change', function() {
+                translatePage(this.value);
+            });
+        });
+        </script>
+        <!-- Google Translate Script -->
+        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
