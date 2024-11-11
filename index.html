@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <div id="google_translate_element" style="display:none;"></div>
+    <div id="google_translate_element"></div>
     <script type="text/javascript">
     function googleTranslateElementInit() {
         new google.translate.TranslateElement({
             pageLanguage: 'en', // Set the default language
             includedLanguages: 'en,es,vi,ja,zh-CN,ko,ru,ar,hi', // Languages to be included
             layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-            autoDisplay: false // Prevent automatic display of the original select field
+            autoDisplay: true // Prevent automatic display of the original select field
         }, 'google_translate_element');
     }
 
@@ -115,6 +115,18 @@
     </style>
 </head>
 <body>
+    <select id="language_selector">
+        <option value="">Select Language</option>
+        <option value="en">English</option>
+        <option value="es">Español</option>
+        <option value="vi">Tiếng Việt</option>
+        <option value="ja">日本語</option>
+        <option value="zh-CN">中文 (简体)</option>
+        <option value="ko">한국어</option>
+        <option value="ru">Русский</option>
+        <option value="ar">العربية</option>
+        <option value="hi">हिन्दी</option>
+    </select>
     <div class="container">
         <img src="Icon.png" alt="App Logo" class="app-logo">
         <h1>Welcome to Glyphz!</h1>
