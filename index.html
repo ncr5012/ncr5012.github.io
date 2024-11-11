@@ -137,6 +137,34 @@
 
     <!-- JavaScript for language selector -->
     <script>
+        function getUserLanguage() {
+        var userLang = navigator.language || navigator.userLanguage;
+        if (userLang.toLowerCase().startsWith('zh')) {
+            userLang = 'zh-CN';
+        } else {
+            userLang = userLang.substring(0,2);
+        }
+        return userLang;
+    }
+
+    function setLanguage() {
+        var userLang = getUserLanguage();
+        var supportedLangs = ['es', 'vi', 'ar', 'zh-CN', 'ja', 'ko', 'hi', 'ru'];
+        if (supportedLangs.includes(userLang) && userLang !== 'en') {
+            var interval = setInterval(function() {
+                var langSelect = document.querySelector('select.goog-te-combo');
+                if (langSelect) {
+                    langSelect.value = userLang;
+                    langSelect.dispatchEvent(new Event('change'));
+                    clearInterval(interval);
+                }
+            }, 500);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        setLanguage();
+    });
         document.getElementById('language').addEventListener('change', function() {
             var lang = this.value;
             if (lang) {
