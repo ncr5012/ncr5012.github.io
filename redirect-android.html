@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MKLFX87SHC"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-MKLFX87SHC');
+    </script>
+    <!-- Event snippet for Android Download conversion page -->
+<script>
+    gtag('event', 'conversion', {
+        'send_to': 'AW-16745960956/knJ6CI21t_8ZEPyrjLE-',
+        'value': 1.0,
+        'currency': 'USD',
+        'transaction_id': ''
+    });
+  </script>
+  
+    <meta charset="UTF-8">
+    <title>Redirecting to Google Play...</title>
+    <!-- Place your tracking/analytics scripts here if needed -->
+    <script>
+      // Example: Google Analytics event or conversion tracking
+      // gtag('event', 'click', {
+      //   'event_category': 'AppDownload',
+      //   'event_label': 'GooglePlay'
+      // });
+
+      // Then redirect to the actual app store
+      setTimeout(function(){
+        window.location.href = "https://play.google.com/store/apps/details?id=com.waypost&pcampaignid=web_share";
+      }, 1000); // 1-second delay to allow tracking
+    </script>
+</head>
+<body>
+    <p>Redirecting you to the Google Play Store...</p>
+    <!-- If JavaScript is disabled, provide a fallback link -->
+    <noscript>
+        <p><a href="https://play.google.com/store/apps/details?id=com.waypost&pcampaignid=web_share">Continue to Google Play</a></p>
+    </noscript>
+</body>
+</html>
