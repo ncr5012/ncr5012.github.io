@@ -10,6 +10,16 @@
 
     gtag('config', 'G-MKLFX87SHC');
     </script>
+    <!-- Event snippet for Download Button conversion page -->
+    <script>
+        gtag('event', 'conversion', {
+            'send_to': 'AW-16745960956/Zb8nCMal9f8ZEPyrjLE-',
+            'value': 1.0,
+            'currency': 'USD',
+            'transaction_id': ''
+        });
+    </script>
+  
     <meta charset="UTF-8">
     <title>Redirecting...</title>
     <script>
@@ -31,6 +41,8 @@
             return "unknown";
         }
 
+        
+
         function redirectToStore() {
             var os = getMobileOperatingSystem();
             console.log("Detected OS:", os);
@@ -50,7 +62,7 @@
                 event = "Android";
             } else {
                 // Fallback URL for other devices
-                redirectUrl = 'https://glyphzapp.com';
+                redirectUrl = 'https://glyphz.ai';
                 event = "Other";
             }
 
