@@ -4,43 +4,300 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MKLFX87SHC"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-MKLFX87SHC');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-MKLFX87SHC');
     </script>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Support Page for Glyphz App</title>
+    <meta name="description" content="Glyphz App Support Page. Find FAQs, contact information, and helpful resources to get the most out of Glyphz.">
+
+    <!-- Smart App Banner for iOS (optional, can keep or remove) -->
+    <meta name="apple-itunes-app" content="app-id=6720708677">
+
+    <!-- Inline Styles (copied from reference and lightly adjusted where needed) -->
+    <style>
+        /* Global Reset and Fonts */
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: #f8fafc;
+            color: #333;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center; /* Center text by default inside container */
+        }
+
+        /* NAVIGATION BAR */
+        .navbar {
+            background-color: #fff;
+            color: #333;
+            padding: 10px 0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-logo {
+            max-width: 60px;
+        }
+        .nav-links {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .nav-links li {
+            margin-left: 20px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: #009688;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            /* Basic background gradient, can replace or remove if desired */
+            background: linear-gradient(135deg, #009688, #4db6ac);
+        }
+        /* Dark overlay if you want to keep the style consistent */
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.4); 
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            margin: 0 0 20px;
+            font-weight: 700;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin: 0 auto 20px;
+        }
+
+        /* Main Content (Support Sections) */
+        .support-section {
+            background-color: #fff;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            margin: 20px 0;
+            padding: 30px;
+            text-align: left; /* so the paragraphs and lists align left inside */
+        }
+        .support-section h2 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+            color: #009688;
+        }
+        .support-section h3 {
+            font-size: 1.2rem;
+            margin-top: 20px;
+            color: #333;
+        }
+        .support-section p,
+        .support-section ul,
+        .support-section li {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        .support-section ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        footer a {
+            color: #666;
+            margin: 0 8px;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Language selector (top-right corner) */
+        .language-selector {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        .language-selector label {
+            margin-right: 5px;
+            font-weight: bold;
+            color: #fff; 
+        }
+        .language-selector select {
+            border-radius: 4px;
+            padding: 5px;
+            outline: none;
+        }
+
+        /* Responsive Media Queries */
+        @media(max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .nav-links {
+                flex-direction: column;
+            }
+            .nav-links li {
+                margin-left: 0;
+                margin: 5px 0;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to Glyphz App Support!</h1>
-    </header>
-    <section>
-        <p>We're here to help you with any questions or issues you might encounter. Our goal is to ensure you have the best experience possible with our app.</p>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <!-- Logo (adjust source as needed) -->
+            <a href="index.html">
+                <img src="Icon.png" alt="Glyphz Logo" class="nav-logo" />
+            </a>
+            <!-- Simple nav links (could adjust as necessary) -->
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="support.html">Support</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <label for="language">Select Language:</label>
+        <select id="language">
+            <option value="">English</option>
+            <option value="es">Español</option>
+            <option value="vi">Tiếng Việt</option>
+            <option value="ar">العربية</option>
+            <option value="zh-CN">中文 (简体)</option>
+            <option value="ja">日本語</option>
+            <option value="ko">한국어</option>
+            <option value="hi">हिन्दी</option>
+            <option value="ru">Русский</option>
+        </select>
+    </div>
+
+    <!-- Hero Section for Support -->
+    <section class="hero">
+        <div class="hero-content container">
+            <h1>Welcome to Glyphz App Support!</h1>
+            <p>We’re here to help you with any questions or issues you might encounter.</p>
+        </div>
     </section>
-    <section>
-        <h2>Contact Us</h2>
-        <p>For any support queries:</p>
-        <ul>
-            <li>Email: <a href="mailto:nick@glyphz.ai">nick@glyphz.ai</a></li>
-            <li>Phone: 717-579-3941</li>
-        </ul>
-    </section>
-    <section>
-        <h2>Frequently Asked Questions (FAQs)</h2>
-        <h3>1. How do I get started with Glyphz App?</h3>
-        <p>Getting started is easy! Just download the app and follow the on-screen instructions to set up your account.</p>
-        <h3>2. What should I do if I encounter an error?</h3>
-        <p>Please take a screenshot of the error message and email it to us at <a href="mailto:nick@glyphz.ai">nick@glyphz.ai</a>, or call us for immediate assistance.</p>
-        <h3>3. Is my data secure with Glyphz App?</h3>
-        <p>Yes, your security is our top priority. We use advanced encryption and security protocols to protect your data.</p>
-    </section>
-    <footer>
+
+    <!-- Main Support Content -->
+    <div class="container">
+        <div class="support-section">
+            <p>
+                Our goal is to ensure you have the best experience possible with our app. 
+                Please find our contact information and FAQs below.
+            </p>
+        </div>
+
+        <div class="support-section">
+            <h2>Contact Us</h2>
+            <p>For any support queries:</p>
+            <ul>
+                <li>Email: <a href="mailto:nick@glyphz.ai">nick@glyphz.ai</a></li>
+                <li>Phone: 717-579-3941</li>
+            </ul>
+        </div>
+
+        <div class="support-section">
+            <h2>Frequently Asked Questions (FAQs)</h2>
+            <h3>1. How do I get started with Glyphz App?</h3>
+            <p>Getting started is easy! Just download the app and follow the on-screen instructions to set up your account.</p>
+            
+            <h3>2. What should I do if I encounter an error?</h3>
+            <p>Please take a screenshot of the error message and email it to us at <a href="mailto:nick@glyphz.ai">nick@glyphz.ai</a>, or call us for immediate assistance.</p>
+            
+            <h3>3. Is my data secure with Glyphz App?</h3>
+            <p>Yes, your security is our top priority. We use advanced encryption and security protocols to protect your data.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="container">
         <p>If you need further assistance, do not hesitate to contact us using the details provided above. We are committed to providing you with excellent service.</p>
-        <a href="index.html">Home</a> |
+        <p>
+            <a href="privacy.html">Privacy Policy</a> |
+            <a href="terms.html">Terms of Service</a> |
+            <a href="delete.html">Delete Account</a> |
+            <a href="support.html">Support</a>
+        </p>
+        <p>&copy; <span id="year"></span> Glyphz. All rights reserved.</p>
     </footer>
+
+    <!-- JavaScript for language selector and dynamic year -->
+    <script>
+        // Language Selector
+        document.getElementById('language').addEventListener('change', function() {
+            var lang = this.value;
+            if (lang) {
+                var url = 'https://translate.google.com/translate?hl=' + lang + '&sl=auto&tl=' + lang + '&u=' + encodeURIComponent(window.location.href);
+                window.location.href = url;
+            } else {
+                // Reload the current URL without #fragment or query params
+                window.location.href = window.location.href.split('#')[0].split('?')[0];
+            }
+        });
+
+        // Dynamic year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
